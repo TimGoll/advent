@@ -1,0 +1,106 @@
+body {
+    margin: 0 auto;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+.header {
+    width: 100%;
+    background: rgb(250,251,252);
+    border-bottom: 1px solid rgb(226,228,232);
+}
+
+.header_inner {
+    margin: 0 auto;
+    width: 800px;
+    padding: 25px 0;
+}
+
+.header_span_title {
+    font-weight: 700;
+    color: rgb(39,105,217);
+}
+
+.header_span_subtitle {
+    color: rgb(39,105,217);
+}
+
+.mainarea {
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 35px;
+}
+
+.content_heading {
+    width: calc(100% - 42px);
+    padding: 20px;
+    border-top: 1px solid rgb(221,221,221);
+    border-left: 1px solid rgb(221,221,221);
+    border-right: 1px solid rgb(221,221,221);
+    background: rgb(244,246,248);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-weight: 700;
+    float: left;
+}
+
+.content {
+    width: calc(100% - 42px);
+    padding: 20px;
+    border: 1px solid rgb(221,221,221);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    float: left;
+}
+
+p {
+    margin-top: 0;
+}
+
+p.story {
+    text-indent: 25px;
+    font-family: 'Source Serif Pro', serif;
+    font-size: 18px;
+    margin-top: 18px;
+    margin-bottom: 0px;
+}
+
+p.inner {
+    margin: 0;
+}
+
+
+
+
+
+
+.button {
+    padding: 5px 15px;
+    border-radius: 2px;
+    cursor: pointer;
+    background: rgb(244,246,248);
+    border: 1px solid rgb(226,228,232);
+    font-weight: 400;
+    color: rgb(10,10,10);
+    float: left;
+    user-select: none;
+}
+
+.button:hover {
+    background: rgb(234,236,238);
+    border: 1px solid rgb(196,198,192);
+}
+
+input[type=password].input, input[type=text].input {
+    font-size: 16px;
+    padding: 7px 10px;
+    margin-right: 10px;
+    border-radius: 2px;
+    border: 1px solid rgb(226,228,232);
+    float: left;
+}
+
+input[type=password].input:focus, input[type=text].input:focus {
+    outline: 0;
+    border: 1px solid rgb(196,198,192);
+}

@@ -1,0 +1,35 @@
+{
+    "title": "Advent 2017",
+    "startdate": {
+        "year": 2017,
+        "month": 11,
+        "day": 1
+    },
+    "enddate": {
+        "year": 2017,
+        "month": 12,
+        "day": 24
+    },
+
+    "mainpassword": "260416",
+
+    "text": {
+        "button": {
+            "story": "zur Geschichte",
+            "riddle": "Zum Adventsrätsel"
+        },
+        "subtitle": {
+            "story": "Geschichte",
+            "riddle": "Adventsrätsel"
+        },
+        "contenttitle": {
+            "before_startdate": "Heute gibt es noch nichts zum Rätseln",
+            "after_startdate": "Heute gibt es nichts mehr zum Rätseln",
+            "riddle": "Adventsrätsel",
+            "locked": "Zugang gesperrt",
+            "all_passed_for_today": "Alles erledigt",
+            "story": "Geschichte"
+        }
+
+    }
+}

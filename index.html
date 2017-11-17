@@ -1,14 +1,31 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Your Website</title>
 
-    <script type="text/javascript" src="libs/simpleAJAX.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
+
+    <script type="text/javascript" src="libs/simpleAJAX.min.js"></script>
+    <script type="text/javascript" src="libs/LScache.min.js"></script>
 
     <script type="text/javascript" src="advent.js"></script>
     <link rel="stylesheet" href="style.css">
 
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
 </head>
     <body>
+		<div class="header">
+			<div class="header_inner">
+				<div style="float:left; margin-top: -10px;">
+					<span class="header_span_title" id="title"></span> / <span class="header_span_subtitle" id="subtitle">sds</span>
+				</div>
+				<div style="float: right; margin-top: -15px;" class="button" id="switch_button"></div>
+			</div>
+		</div>
 
+		<div class="mainarea">
+			<div class="content_heading" id="content_heading"></div>
+			<div class="content" id="content"></div>
+		</div>
     </body>
 </html>
