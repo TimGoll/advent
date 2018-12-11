@@ -25,6 +25,14 @@ body {
     color: rgb(39,105,217);
 }
 
+.content_span_title {
+    font-weight: 700;
+}
+
+.content_span_subtitle {
+
+}
+
 .mainarea {
     width: 800px;
     margin: 0 auto;
@@ -40,7 +48,6 @@ body {
     background: rgb(244,246,248);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    font-weight: 700;
     float: left;
 }
 
@@ -50,6 +57,25 @@ body {
     border: 1px solid rgb(221,221,221);
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+    float: left;
+}
+
+.story_box {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid rgb(221,221,221);
+    padding-bottom: 18px;
+}
+
+.story_number {
+    padding-left: 18px;
+    width: 100px;
+    float: left;
+    font-size: 65px;
+}
+
+.story_text {
+    width: calc(100% - 118px);
     float: left;
 }
 

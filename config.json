@@ -2,7 +2,7 @@
     "title": "Advent 2017",
     "startdate": {
         "year": 2017,
-        "month": 11,
+        "month": 12,
         "day": 1
     },
     "enddate": {
@@ -23,12 +23,19 @@
             "riddle": "Adventsrätsel"
         },
         "contenttitle": {
-            "before_startdate": "Heute gibt es noch nichts zum Rätseln",
-            "after_startdate": "Heute gibt es nichts mehr zum Rätseln",
+            "before_startdate": "Gesperrt",
+            "after_startdate": "Gesperrt",
             "riddle": "Adventsrätsel",
-            "locked": "Zugang gesperrt",
+            "locked": "Gesperrt",
             "all_passed_for_today": "Alles erledigt",
             "story": "Geschichte"
+        },
+        "contentsubtitle": {
+            "before_startdate": "Heute gibt es noch nichts zum Rätseln",
+            "after_startdate": "Heute gibt es nichts mehr zum Rätseln",
+            "locked": "Passworteingabe erforderlich",
+            "all_passed_for_today": "Morgen geht es weiter",
+            "story": "Deine tägliche Belohnung"
         }
 
     }

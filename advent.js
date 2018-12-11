@@ -4,11 +4,12 @@ var daily_riddle = (function() {
         LScache.init({compression_type: DISABLE});
         _pagestate = "LOADING";
 
-        _element_content         = document.getElementById('content');
-        _element_content_heading = document.getElementById('content_heading');
-        _element_title           = document.getElementById('title');
-        _element_subtitle        = document.getElementById('subtitle');
-        _element_switch_button   = document.getElementById('switch_button');
+        _element_content          = document.getElementById('content');
+        _element_content_title    = document.getElementById('content_title');
+        _element_content_subtitle = document.getElementById('content_subtitle');
+        _element_title            = document.getElementById('title');
+        _element_subtitle         = document.getElementById('subtitle');
+        _element_switch_button    = document.getElementById('switch_button');
 
         if (!LScache.get('passed'))
             LScache.add('passed', 0);
@@ -49,7 +50,8 @@ var daily_riddle = (function() {
     var _riddle_solution;
 
     var _element_content;
-    var _element_content_heading;
+    var _element_content_title;
+    var _element_content_subtitle;
     var _element_title;
     var _element_subtitle;
     var _element_switch_button;
@@ -118,10 +120,11 @@ var daily_riddle = (function() {
     };
 
     var _displayPage_before = function() {
-        _element_title.innerHTML           = _config.title;
-        _element_subtitle.innerHTML        = _config.text.subtitle.riddle;
-        _element_switch_button.innerHTML   = _config.text.button.story;
-        _element_content_heading.innerHTML = _config.text.contenttitle.before_startdate;
+        _element_title.innerHTML            = _config.title;
+        _element_subtitle.innerHTML         = _config.text.subtitle.riddle;
+        _element_switch_button.innerHTML    = _config.text.button.story;
+        _element_content_title.innerHTML    = _config.text.contenttitle.before_startdate;
+        _element_content_subtitle.innerHTML = _config.text.contentsubtitle.before_startdate;
 
         simpleAJAX.request(null, '/templates/beforeTime.html', function(data) {
             _element_content.innerHTML = data;
@@ -129,10 +132,11 @@ var daily_riddle = (function() {
     };
 
     var _displayPage_after = function() {
-        _element_title.innerHTML           = _config.title;
-        _element_subtitle.innerHTML        = _config.text.subtitle.riddle;
-        _element_switch_button.innerHTML   = _config.text.button.story;
-        _element_content_heading.innerHTML = _config.text.contenttitle.after_startdate;
+        _element_title.innerHTML            = _config.title;
+        _element_subtitle.innerHTML         = _config.text.subtitle.riddle;
+        _element_switch_button.innerHTML    = _config.text.button.story;
+        _element_content_title.innerHTML    = _config.text.contenttitle.after_startdate;
+        _element_content_subtitle.innerHTML = _config.text.contentsubtitle.after_startdate;
 
         simpleAJAX.request(null, '/templates/afterTime.html', function(data) {
             _element_content.innerHTML = data;
@@ -140,18 +144,20 @@ var daily_riddle = (function() {
     };
 
     var _displayPage_riddle = function() {
-        _element_title.innerHTML           = _config.title;
-        _element_subtitle.innerHTML        = _config.text.subtitle.riddle;
-        _element_switch_button.innerHTML   = _config.text.button.story;
-        _element_content_heading.innerHTML = _config.text.contenttitle.riddle;
+        _element_title.innerHTML            = _config.title;
+        _element_subtitle.innerHTML         = _config.text.subtitle.riddle;
+        _element_switch_button.innerHTML    = _config.text.button.story;
+        _element_content_title.innerHTML    = _config.text.contenttitle.riddle;
 
         simpleAJAX.request(null, '/templates/riddle.html', function(data) {
             _element_content.innerHTML = data;
             _configureElements();
 
-            simpleAJAX.request(null, '/riddles/' + _pad(LScache.get('passed')+1,2) + '.json', function(data) {
+            var riddleId = LScache.get('passed')+1
+
+            simpleAJAX.request(null, '/riddles/' + _pad(riddleId,2) + '.json', function(data) {
                 var parsed_data = JSON.parse(data);
-                _element_content_heading.innerHTML += ' / ' + parsed_data.title;
+                _element_content_subtitle.innerHTML = parsed_data.title + ' (' + riddleId + ')';
                 _element_riddle.innerHTML = parsed_data.description;
                 _riddle_solution = parsed_data.solution;
             });
@@ -159,10 +165,11 @@ var daily_riddle = (function() {
     };
 
     var _displayPage_locked = function() {
-        _element_title.innerHTML           = _config.title;
-        _element_subtitle.innerHTML        = _config.text.subtitle.riddle;
-        _element_switch_button.innerHTML   = _config.text.button.story;
-        _element_content_heading.innerHTML = _config.text.contenttitle.locked;
+        _element_title.innerHTML            = _config.title;
+        _element_subtitle.innerHTML         = _config.text.subtitle.riddle;
+        _element_switch_button.innerHTML    = _config.text.button.story;
+        _element_content_title.innerHTML    = _config.text.contenttitle.locked;
+        _element_content_subtitle.innerHTML = _config.text.contentsubtitle.locked;
 
         simpleAJAX.request(null, '/templates/locked.html', function(data) {
             _element_content.innerHTML = data;
@@ -171,10 +178,11 @@ var daily_riddle = (function() {
     };
 
     var _displayPage_allPassedForToday = function() {
-        _element_title.innerHTML           = _config.title;
-        _element_subtitle.innerHTML        = _config.text.subtitle.riddle;
-        _element_switch_button.innerHTML   = _config.text.button.story;
-        _element_content_heading.innerHTML = _config.text.contenttitle.all_passed_for_today;
+        _element_title.innerHTML            = _config.title;
+        _element_subtitle.innerHTML         = _config.text.subtitle.riddle;
+        _element_switch_button.innerHTML    = _config.text.button.story;
+        _element_content_title.innerHTML    = _config.text.contenttitle.all_passed_for_today;
+        _element_content_subtitle.innerHTML = _config.text.contentsubtitle.all_passed_for_today;
 
         simpleAJAX.request(null, '/templates/allPassedForToday.html', function(data) {
             _element_content.innerHTML = data;
@@ -182,10 +190,11 @@ var daily_riddle = (function() {
     };
 
     var _displayPage_story = function() {
-        _element_title.innerHTML           = _config.title;
-        _element_subtitle.innerHTML        = _config.text.subtitle.story;
-        _element_switch_button.innerHTML   = _config.text.button.riddle;
-        _element_content_heading.innerHTML = _config.text.contenttitle.story;
+        _element_title.innerHTML            = _config.title;
+        _element_subtitle.innerHTML         = _config.text.subtitle.story;
+        _element_switch_button.innerHTML    = _config.text.button.riddle;
+        _element_content_title.innerHTML    = _config.text.contenttitle.story;
+        _element_content_subtitle.innerHTML = _config.text.contentsubtitle.story;
 
         simpleAJAX.request(null, '/templates/story.html', function(data) {
             _element_content.innerHTML = data;
@@ -201,6 +210,17 @@ var daily_riddle = (function() {
                     if (loaded == LScache.get('passed')) {
                         for (var i2 = 1; i2 <= LScache.get('passed'); i2++) {
                             var todays_text = text[_pad(i2,2)];
+
+                            var newElementContentHTML = '';
+                            if (i2 == LScache.get('passed'))
+                                newElementContentHTML += '<div class="story_box" style="background: rgb(255,253,228);">';
+                            else
+                                newElementContentHTML += '<div class="story_box">';
+                            newElementContentHTML += '<div class="story_number">';
+                            newElementContentHTML += _pad(i2,2);
+                            newElementContentHTML += '</div>';
+                            newElementContentHTML += '<div class="story_text">';
+
                             for (var i3 = 0; i3 < todays_text.length; i3++) {
                                 for (var i4 = 0; i4 < todays_text[i3].length; i4++) {
                                     if (i4 == 0)
@@ -208,9 +228,12 @@ var daily_riddle = (function() {
                                     else
                                         var style_class = "story inner"
 
-                                    _element_content.innerHTML += '<p class="' + style_class + '">' + todays_text[i3][i4] + '</p>';
+                                    newElementContentHTML += '<p class="' + style_class + '">' + todays_text[i3][i4] + '</p>';
                                 }
                             }
+                            newElementContentHTML += '</div>';
+                            newElementContentHTML += '</div>';
+                            _element_content.innerHTML += newElementContentHTML;
                         }
 
                     }
